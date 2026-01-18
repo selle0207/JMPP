@@ -8,7 +8,7 @@ const App = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
-    const GOOGLE_FORM_URL = import.meta.env.VITE_GOOGLE_FORM_URL || "https://forms.gle/VOTRE_LIEN";
+    const GOOGLE_FORM_URL = import.meta.env.VITE_GOOGLE_FORM_URL || "https://docs.google.com/forms/d/e/1FAIpQLScaLXF0RLDpVjGatJd7JGNm93cWI2ObRT8bAY_dwWuquGsotg/viewform";
     const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
     useEffect(() => {
@@ -71,19 +71,25 @@ const App = () => {
 
     const partenaires = [
         {
-            nom: "Réseau des Jeunes Béninois de la Diaspora (RJBD)",
+            acronyme: "RJBD",
+            nom: "Réseau des Jeunes Béninois de la Diaspora",
             role: "Organisation porteuse",
-            description: "Promotion de la citoyenneté active et du leadership jeune"
+            description: "Promotion de la citoyenneté active et du leadership jeune",
+            logo: "/images/logo-jmp.png"
         },
         {
-            nom: "Association des Jeunes Maires du Bénin (AMJB)",
+            acronyme: "AMJB",
+            nom: "Association des Jeunes Maires du Bénin",
             role: "Partenaire de mise en œuvre",
-            description: "Gouvernance locale participative et implication des jeunes"
+            description: "Gouvernance locale participative et implication des jeunes",
+            logo: "/images/logo-amjb.jpg"
         },
         {
+            acronyme: "PJB",
             nom: "Parlement des Jeunes du Bénin",
             role: "Partenaire de mise en œuvre",
-            description: "Représentation nationale et renforcement de la citoyenneté"
+            description: "Représentation nationale et renforcement de la citoyenneté",
+            logo: "/images/logo-pjb.jpg"
         }
     ];
 
@@ -122,19 +128,19 @@ const App = () => {
                             <img
                                 src="/images/logo-jmp.png"
                                 alt="Jeunesse en Mouvement pour la Paix"
-                                className="w-18 h-16 object-contain"
+                                className="w-16 h-16 object-contain"
                                 onError={(e) => {
                                     e.target.style.display = 'none';
                                     e.target.nextSibling.style.display = 'flex';
                                 }}
                             />
-                           {/* <div className="w-16 h-16 bg-gradient-to-br from-green-600 via-yellow-500 to-red-600 rounded-lg hidden items-center justify-center">
+                            <div className="w-16 h-16 bg-gradient-to-br from-green-600 via-yellow-500 to-red-600 rounded-lg hidden items-center justify-center">
                                 <span className="text-white font-bold text-xl">JMP</span>
                             </div>
                             <div className="hidden md:block">
                                 <h1 className="text-xl font-bold text-gray-800">Jeunesse en Mouvement</h1>
                                 <p className="text-sm text-gray-600">pour la Paix</p>
-                            </div>*/}
+                            </div>
                         </div>
 
                         <nav className="hidden md:flex space-x-1">
@@ -257,29 +263,21 @@ const App = () => {
 
                         {/* Statistiques - Logos des organisations */}
                         <div className="bg-white rounded-2xl shadow-md p-8">
-                            <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">Nos Organisations</h3>
+                            <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">Organisateurs</h3>
                             <div className="grid md:grid-cols-3 gap-8">
-                                <div className="text-center p-6">
-                                    <div className="w-24 h-24 bg-gradient-to-br from-green-600 to-green-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <Users className="text-white" size={48} />
+                                {partenaires.map((partenaire, index) => (
+                                    <div key={index} className="text-center p-6">
+                                        <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center">
+                                            <img 
+                                                src={partenaire.logo} 
+                                                alt={partenaire.acronyme} 
+                                                className="w-full h-full object-contain"
+                                            />
+                                        </div>
+                                        <h4 className="font-bold text-gray-900 mb-2">{partenaire.acronyme}</h4>
+                                        <p className="text-sm text-gray-600">{partenaire.nom}</p>
                                     </div>
-                                    <h4 className="font-bold text-gray-900 mb-2">RJBD</h4>
-                                    <p className="text-sm text-gray-600">Réseau des Jeunes Béninois de la Diaspora</p>
-                                </div>
-                                <div className="text-center p-6">
-                                    <div className="w-24 h-24 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <Users className="text-white" size={48} />
-                                    </div>
-                                    <h4 className="font-bold text-gray-900 mb-2">AMJB</h4>
-                                    <p className="text-sm text-gray-600">Association des Jeunes Maires du Bénin</p>
-                                </div>
-                                <div className="text-center p-6">
-                                    <div className="w-24 h-24 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <Users className="text-white" size={48} />
-                                    </div>
-                                    <h4 className="font-bold text-gray-900 mb-2">PJB</h4>
-                                    <p className="text-sm text-gray-600">Parlement des Jeunes du Bénin</p>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -289,26 +287,26 @@ const App = () => {
                     <div className="space-y-12">
                         <div className="text-center mb-12">
                             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">À propos du projet</h2>
-                            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                                La Caravane Nationale de Paix et de Concertation de la Jeunesse Béninoise
-                            </p>
                         </div>
 
-                        <div className="bg-gradient-to-br from-green-50 to-yellow-50 rounded-2xl p-8 md:p-12">
-                            <div className="prose prose-lg max-w-none">
-                                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                                    {/* Insérez ici le texte que vous fournirez pour la section À propos */}
-                                    Contenu à venir...
-                                </p>
-                            </div>
+                        <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12 space-y-6 text-lg text-gray-700 leading-relaxed">
+                            <p>
+                                Le projet <strong>Jeunesse en Mouvement pour la Paix</strong> est une initiative du <strong>Réseau des Jeunes Béninois de la Diaspora (RJBD)</strong>, en partenariat avec l’<strong>Association des Jeunes Maires du Bénin (AMJB)</strong> et le <strong>Parlement des Jeunes du Bénin</strong>.
+                            </p>
+                            <p>
+                                Dans un contexte préélectoral sensible, le projet a pour objectif de contribuer à la prévention des violences électorales et au renforcement de la cohésion sociale à travers l’implication active et responsable de la jeunesse. Il combine des actions de terrain (tournée de sensibilisation, dialogues communautaires, ateliers participatifs) et la mise en place d’une plateforme numérique nationale, destinée à recueillir directement les attentes, priorités et recommandations des jeunes vis-à-vis du prochain Président de la République.
+                            </p>
+                            <p>
+                                Les contributions collectées en ligne et sur le terrain seront consolidées pour l’élaboration d’un mémorandum national de plaidoyer, qui sera officiellement soumis aux candidats à l’élection présidentielle ainsi qu’aux partis politiques, afin d’éclairer leurs engagements en matière de jeunesse, de paix et de gouvernance démocratique.
+                            </p>
                         </div>
                     </div>
                 )}
 
-                {currentPage === 'actualites' && (
+                {currentPage === 'activites' && (
                     <div className="space-y-8">
                         <div className="flex justify-between items-center mb-8">
-                            <h2 className="text-4xl font-bold text-gray-900">Actualités</h2>
+                            <h2 className="text-4xl font-bold text-gray-900">Nos Activités</h2>
                             <button
                                 onClick={fetchActivites}
                                 className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2"
@@ -421,8 +419,8 @@ const App = () => {
                             <div className="space-y-6">
                                 <div className="border-l-4 border-green-600 pl-6 py-4 hover:bg-green-50 transition-colors rounded-r-lg">
                                     <div className="text-sm font-semibold text-green-600 mb-1">15 Février - 15 Mars 2025</div>
-                                    <h4 className="text-xl font-bold text-gray-900 mb-2">Collecte des attentes de la jeunesse</h4>
-                                    <p className="text-gray-700">{/* Texte à fournir */}Texte à venir...</p>
+                                    <h4 className="text-xl font-bold text-gray-900 mb-2">Collecte numérique des attentes</h4>
+                                    <p className="text-gray-700">Collecte des contributions via la plateforme Google Forms</p>
                                 </div>
 
                                 <div className="border-l-4 border-yellow-500 pl-6 py-4 hover:bg-yellow-50 transition-colors rounded-r-lg">
@@ -454,12 +452,16 @@ const App = () => {
                         <div className="space-y-6">
                             {partenaires.map((partenaire, index) => (
                                 <div key={index} className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                                    <div className="flex items-start space-x-4">
-                                        <div className="w-16 h-16 bg-gradient-to-br from-green-600 via-yellow-500 to-red-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                                            <Users className="text-white" size={32} />
+                                    <div className="flex items-start space-x-6">
+                                        <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-lg p-2">
+                                            <img 
+                                                src={partenaire.logo} 
+                                                alt={partenaire.acronyme} 
+                                                className="w-full h-full object-contain"
+                                            />
                                         </div>
                                         <div className="flex-1">
-                                            <h3 className="text-2xl font-bold text-gray-900 mb-2">{partenaire.nom}</h3>
+                                            <h3 className="text-2xl font-bold text-gray-900 mb-2">{partenaire.nom} ({partenaire.acronyme})</h3>
                                             <div className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-3">
                                                 {partenaire.role}
                                             </div>
@@ -524,7 +526,7 @@ const App = () => {
                         <div>
                             <h3 className="text-xl font-bold mb-4">Jeunesse en Mouvement pour la Paix</h3>
                             <p className="text-gray-400">
-                                Ensemble, contribuons à bâtir un Bénin de paix
+                                Contribuer à une élection présidentielle apaisée au Bénin
                             </p>
                         </div>
                         <div>
