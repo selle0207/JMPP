@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronRight, Users, Target, Briefcase, Calendar, Mail, ExternalLink, MapPin, Clock, AlertCircle, Ear, UserPlus, Activity } from 'lucide-react';
+import { Menu, X, ChevronRight, Users, Target, Briefcase, Calendar, Mail, ExternalLink, MapPin, Clock, AlertCircle, Ear, UserPlus, Activity, Globe, Shield, MessageCircle, Smartphone, CheckCircle, AlertTriangle, Heart } from 'lucide-react';
 
 const App = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -75,7 +75,7 @@ const App = () => {
             nom: "Réseau des Jeunes Béninois de la Diaspora",
             role: "Organisation porteuse",
             description: "Promotion de la citoyenneté active et du leadership jeune",
-            logo: "/images/logo-rjbd.jpeg"
+            logo: "/images/logo-jmp.png"
         },
         {
             acronyme: "AMJB",
@@ -289,7 +289,8 @@ const App = () => {
                             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">À propos du projet</h2>
                         </div>
 
-                        <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12 space-y-6 text-lg text-gray-700 leading-relaxed">
+                        {/* Introduction */}
+                        <div className="bg-gradient-to-br from-green-50 to-yellow-50 rounded-2xl shadow-sm p-8 md:p-12 space-y-6 text-lg text-gray-700 leading-relaxed">
                             <p>
                                 Le projet <strong>Jeunesse en Mouvement pour la Paix</strong> est une initiative du <strong>Réseau des Jeunes Béninois de la Diaspora (RJBD)</strong>, en partenariat avec l’<strong>Association des Jeunes Maires du Bénin (AMJB)</strong> et le <strong>Parlement des Jeunes du Bénin</strong>.
                             </p>
@@ -299,6 +300,196 @@ const App = () => {
                             <p>
                                 Les contributions collectées en ligne et sur le terrain seront consolidées pour l’élaboration d’un mémorandum national de plaidoyer, qui sera officiellement soumis aux candidats à l’élection présidentielle ainsi qu’aux partis politiques, afin d’éclairer leurs engagements en matière de jeunesse, de paix et de gouvernance démocratique.
                             </p>
+                        </div>
+
+                        {/* Organisation Porteuse */}
+                        <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12 shadow-sm">
+                            <div className="flex items-center mb-8">
+                                <div className="p-3 bg-green-600 rounded-lg mr-4">
+                                    <Globe className="text-white" size={32} />
+                                </div>
+                                <div>
+                                    <h3 className="text-2xl font-bold text-gray-900">Organisation Porteuse</h3>
+                                    <p className="text-green-700 font-semibold">Réseau des Jeunes Béninois de la Diaspora (RJBD)</p>
+                                </div>
+                            </div>
+                            
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <div className="space-y-6">
+                                    <div>
+                                        <h4 className="font-bold text-gray-900 mb-2 flex items-center">
+                                            <Users className="mr-2 text-green-600" size={20} /> Nature
+                                        </h4>
+                                        <p className="text-gray-700 pl-7">Réseau associatif de jeunesse</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-gray-900 mb-2 flex items-center">
+                                            <Heart className="mr-2 text-green-600" size={20} /> Vision
+                                        </h4>
+                                        <p className="text-gray-700 pl-7">Une jeunesse béninoise d’ici et d’ailleurs engagée, responsable et actrice de paix et de développement</p>
+                                    </div>
+                                </div>
+                                <div className="space-y-6">
+                                    <div>
+                                        <h4 className="font-bold text-gray-900 mb-2 flex items-center">
+                                            <Target className="mr-2 text-green-600" size={20} /> Mission
+                                        </h4>
+                                        <ul className="list-disc list-inside text-gray-700 pl-7 space-y-1">
+                                            <li>Promouvoir la citoyenneté et le leadership des jeunes</li>
+                                            <li>Renforcer les liens entre la diaspora et le Bénin</li>
+                                            <li>Contribuer à la paix, à la démocratie et à la cohésion sociale</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-gray-900 mb-2 flex items-center">
+                                            <Briefcase className="mr-2 text-green-600" size={20} /> Domaines d’intervention
+                                        </h4>
+                                        <ul className="list-disc list-inside text-gray-700 pl-7 space-y-1">
+                                            <li>Paix et prévention des conflits</li>
+                                            <li>Engagement citoyen</li>
+                                            <li>Dialogue jeunesse–institutions</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Partenaires */}
+                        <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+                            <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                                <Users className="mr-3 text-blue-600" size={28} /> Organisations Partenaires
+                            </h3>
+                            <div className="grid md:grid-cols-2 gap-6 mb-6">
+                                <div className="p-4 bg-gray-50 rounded-xl">
+                                    <h4 className="font-bold text-gray-900">Association des Jeunes Maires du Bénin (AMJB)</h4>
+                                </div>
+                                <div className="p-4 bg-gray-50 rounded-xl">
+                                    <h4 className="font-bold text-gray-900">Parlement des Jeunes du Bénin (PJBénin)</h4>
+                                </div>
+                            </div>
+                            <p className="text-gray-600 italic">
+                                Ces partenariats garantissent un fort ancrage territorial, institutionnel et une représentativité nationale de la jeunesse.
+                            </p>
+                        </div>
+
+                        {/* Problématique */}
+                        <div className="bg-orange-50 rounded-2xl p-8 md:p-12 border-l-4 border-orange-500">
+                            <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                                <AlertTriangle className="mr-3 text-orange-600" size={28} /> Problématique
+                            </h3>
+                            <div className="space-y-4 text-gray-800">
+                                <p>
+                                    La jeunesse béninoise demeure insuffisamment intégrée aux mécanismes formels de dialogue politique et de gouvernance démocratique. Cette situation favorise son instrumentalisation en période électorale, en l’absence de cadres structurés d’expression de ses attentes et de ses priorités.
+                                </p>
+                                <p>
+                                    Le faible dialogue entre la jeunesse et les acteurs politiques accentue les frustrations et augmente le risque de violences électorales. Il devient donc urgent de mettre en place des mécanismes inclusifs et innovants permettant aux jeunes de s’exprimer librement, pacifiquement et de manière structurée.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Objectifs */}
+                        <div className="bg-blue-50 rounded-2xl p-8 md:p-12">
+                            <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+                                <Target className="mr-3 text-blue-600" size={28} /> Objectifs
+                            </h3>
+                            
+                            <div className="mb-8 bg-white p-6 rounded-xl shadow-sm">
+                                <h4 className="text-lg font-bold text-blue-800 mb-2">Objectif Général</h4>
+                                <p className="text-gray-700">
+                                    Contribuer à l’organisation d’une élection présidentielle apaisée au Bénin par l’implication active, responsable et constructive de la jeunesse.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 className="text-lg font-bold text-blue-800 mb-4">Objectifs Spécifiques</h4>
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    {[
+                                        "Sensibiliser les jeunes à la paix et à la non-violence",
+                                        "Prévenir les discours de haine et la manipulation politique",
+                                        "Donner directement la parole aux jeunes à travers des cadres physiques et numériques",
+                                        "Recueillir et formaliser les attentes de la jeunesse",
+                                        "Mettre en réseau les associations de jeunesse",
+                                        "Élaborer un mémorandum national de plaidoyer"
+                                    ].map((obj, idx) => (
+                                        <div key={idx} className="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                                            <CheckCircle className="text-green-500 mr-3 mt-1 flex-shrink-0" size={20} />
+                                            <span className="text-gray-700">{obj}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Bénéficiaires */}
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <div className="bg-white p-8 rounded-2xl shadow-md border-t-4 border-green-500">
+                                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                                    <UserPlus className="mr-3 text-green-600" size={24} /> Bénéficiaires Directs
+                                </h3>
+                                <ul className="space-y-3">
+                                    <li className="flex items-center text-gray-700">
+                                        <ChevronRight className="text-green-500 mr-2" size={20} /> Jeunes de 18 à 35 ans
+                                    </li>
+                                    <li className="flex items-center text-gray-700">
+                                        <ChevronRight className="text-green-500 mr-2" size={20} /> Associations et organisations de jeunesse
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="bg-white p-8 rounded-2xl shadow-md border-t-4 border-blue-500">
+                                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                                    <Users className="mr-3 text-blue-600" size={24} /> Bénéficiaires Indirects
+                                </h3>
+                                <ul className="space-y-3">
+                                    <li className="flex items-center text-gray-700">
+                                        <ChevronRight className="text-blue-500 mr-2" size={20} /> Communautés locales
+                                    </li>
+                                    <li className="flex items-center text-gray-700">
+                                        <ChevronRight className="text-blue-500 mr-2" size={20} /> Institutions publiques et acteurs politiques
+                                    </li>
+                                    <li className="flex items-center text-gray-700">
+                                        <ChevronRight className="text-blue-500 mr-2" size={20} /> Population béninoise dans son ensemble
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* Activités et Méthodologie */}
+                        <div className="bg-gray-900 text-white rounded-2xl p-8 md:p-12">
+                            <h3 className="text-2xl font-bold mb-8 flex items-center">
+                                <Activity className="mr-3 text-green-400" size={28} /> Activités et Méthodologie
+                            </h3>
+                            
+                            <p className="text-gray-300 mb-8 text-lg">
+                                Le projet repose sur une approche participative combinant actions physiques et outils numériques :
+                            </p>
+
+                            <div className="grid md:grid-cols-3 gap-6 mb-12">
+                                <div className="bg-gray-800 p-6 rounded-xl text-center hover:bg-gray-700 transition-colors">
+                                    <MapPin className="mx-auto text-green-400 mb-4" size={32} />
+                                    <h4 className="font-bold mb-2">Tournée Nationale</h4>
+                                    <p className="text-sm text-gray-400">Sensibilisation dans 15 communes</p>
+                                </div>
+                                <div className="bg-gray-800 p-6 rounded-xl text-center hover:bg-gray-700 transition-colors">
+                                    <MessageCircle className="mx-auto text-yellow-400 mb-4" size={32} />
+                                    <h4 className="font-bold mb-2">Dialogues</h4>
+                                    <p className="text-sm text-gray-400">Ateliers participatifs et communautaires</p>
+                                </div>
+                                <div className="bg-gray-800 p-6 rounded-xl text-center hover:bg-gray-700 transition-colors">
+                                    <Smartphone className="mx-auto text-blue-400 mb-4" size={32} />
+                                    <h4 className="font-bold mb-2">Plateforme Numérique</h4>
+                                    <p className="text-sm text-gray-400">Collecte des attentes en ligne</p>
+                                </div>
+                            </div>
+
+                            <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                                <h4 className="text-xl font-bold text-green-400 mb-4">Focus : Plateforme Numérique</h4>
+                                <p className="text-gray-300 mb-4 leading-relaxed">
+                                    La plateforme permettra aux jeunes, sur des thématiques clairement définies (emploi, gouvernance, paix, éducation, inclusion, participation citoyenne), de formuler directement leurs attentes, priorités et recommandations à l’endroit du futur Président de la République.
+                                </p>
+                                <p className="text-gray-400 italic text-sm">
+                                    Les contributions recueillies en ligne seront consolidées avec celles collectées sur le terrain pour l’élaboration d’un mémorandum national.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 )}
