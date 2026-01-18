@@ -75,7 +75,7 @@ const App = () => {
             nom: "Réseau des Jeunes Béninois de la Diaspora",
             role: "Organisation porteuse",
             description: "Promotion de la citoyenneté active et du leadership jeune",
-            logo: "/images/logo-jmp.png"
+            logo: "/images/logo-rjbd.jpeg"
         },
         {
             acronyme: "AMJB",
