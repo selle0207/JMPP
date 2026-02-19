@@ -99,7 +99,8 @@ const App = () => {
             nom: "Fédération nationale des étudiants du Bénin",
             role: "Partenaire de mise en œuvre",
             description: "Organisation estudiantine représentant et défendant les intérêts des étudiants béninois",
-            logo: "/images/logo-fneb.jpeg"
+            logo: "/images/logo-fneb.jpeg",
+            siteUrl: "https://www.facebook.com/FNEBenin" // Ajout du lien pour FNEB
         }
     ];
 
@@ -292,11 +293,11 @@ const App = () => {
                                     <div key={index} className="text-center p-6">
                                         <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center">
                                             {partenaire.siteUrl ? (
-                                                <a href={partenaire.siteUrl} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
+                                                <a href={partenaire.siteUrl} target="_blank" rel="noopener noreferrer" className="w-full h-full object-contain hover:opacity-80 transition-opacity">
                                                     <img 
                                                         src={partenaire.logo} 
                                                         alt={partenaire.acronyme} 
-                                                        className="w-full h-full object-contain hover:opacity-80 transition-opacity"
+                                                        className="w-full h-full object-contain"
                                                     />
                                                 </a>
                                             ) : (
@@ -682,11 +683,11 @@ const App = () => {
                                     <div className="flex items-start space-x-6">
                                         <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-lg p-2">
                                             {partenaire.siteUrl ? (
-                                                <a href={partenaire.siteUrl} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
+                                                <a href={partenaire.siteUrl} target="_blank" rel="noopener noreferrer" className="w-full h-full object-contain hover:opacity-80 transition-opacity">
                                                     <img 
                                                         src={partenaire.logo} 
                                                         alt={partenaire.acronyme} 
-                                                        className="w-full h-full object-contain hover:opacity-80 transition-opacity"
+                                                        className="w-full h-full object-contain"
                                                     />
                                                 </a>
                                             ) : (
